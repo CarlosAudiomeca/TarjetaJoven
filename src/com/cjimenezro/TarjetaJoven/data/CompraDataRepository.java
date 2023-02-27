@@ -17,11 +17,11 @@ public class CompraDataRepository implements CompraRepository {
 
     @Override
     public void save(Compra compra) {
-
+        this.localDataSource.save(compra);
     }
 
     @Override
     public List<Compra> getAll() {
-        return null;
+        return null; //localDataSource.findAll();
     }
 }

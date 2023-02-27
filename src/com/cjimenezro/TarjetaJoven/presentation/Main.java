@@ -12,8 +12,10 @@ import com.cjimenezro.TarjetaJoven.domain.CompraRepository;
 import com.cjimenezro.TarjetaJoven.domain.EmpresaRepository;
 import com.cjimenezro.TarjetaJoven.domain.PromocionRepository;
 import com.cjimenezro.TarjetaJoven.domain.UseCase.AddEmpresaUseCase;
+import com.cjimenezro.TarjetaJoven.domain.UseCase.AddPromocionUseCase;
 import com.cjimenezro.TarjetaJoven.domain.UsuarioRepository;
 import com.cjimenezro.TarjetaJoven.domain.models.Empresa;
+import com.cjimenezro.TarjetaJoven.domain.models.Promocion;
 
 public class Main {
 
@@ -32,15 +34,29 @@ public class Main {
         empresa.setCif("325346434523");
 
         Empresa empresa2 = new Empresa();
-        empresa.setId("2");
-        empresa.setNombre("Citroen");
-        empresa.setCif("1513489456");
+        empresa2.setId("2");
+        empresa2.setNombre("Citroen");
+        empresa2.setCif("1513489456");
 
         AddEmpresaUseCase addEmpresaUseCase = new AddEmpresaUseCase(empresaRepository);
         addEmpresaUseCase.execute(empresa);
         addEmpresaUseCase.execute(empresa2);
 
+        Promocion promocion1 =  new Promocion();
+        promocion1.setId("1");
+        promocion1.setDescripcion("cositas");
+        promocion1.setTitulo("Cosas");
+        promocion1.setDescuento(20);
 
+        Promocion promocion2 =  new Promocion();
+        promocion2.setId("2");
+        promocion2.setDescripcion("cositas2");
+        promocion2.setTitulo("Cosas2");
+        promocion2.setDescuento(30);
+
+        AddPromocionUseCase addPromocionUseCase = new AddPromocionUseCase(promocionRepository);
+        addPromocionUseCase.execute(promocion1);
+        addPromocionUseCase.execute(promocion2);
 
 
 

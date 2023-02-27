@@ -52,6 +52,9 @@ public class PromocionFileLocalDataSource implements PromocionLocalDataSource{
     public List<Promocion> findAll() {
         try {
             File myObj = new File(nameFile);
+            if (!myObj.exists()){
+                myObj.createNewFile();
+            }
             Scanner myReader = new Scanner(myObj);
             while (myReader.hasNextLine()) {
                 String data = myReader.nextLine();
@@ -62,6 +65,9 @@ public class PromocionFileLocalDataSource implements PromocionLocalDataSource{
         } catch (FileNotFoundException e) {
             System.out.println("Ha ocurrido un error al obtener el listado.");
             e.printStackTrace();
+        } catch (IOException e) {
+            System.out.println("Ha ocurrido un error al obtener el listado.");
+            throw new RuntimeException(e);
         }
         return new ArrayList<Promocion>();
     }

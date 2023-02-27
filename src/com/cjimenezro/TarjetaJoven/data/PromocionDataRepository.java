@@ -16,11 +16,11 @@ public class PromocionDataRepository implements PromocionRepository {
 
     @Override
     public void save(Promocion promocion) {
-
+        this.localDataSource.save(promocion);
     }
 
     @Override
     public List<Promocion> getAll() {
-        return null;
+        return null; //localDataSource.findAll();
     }
 }

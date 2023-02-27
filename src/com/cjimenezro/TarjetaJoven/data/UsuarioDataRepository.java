@@ -16,11 +16,11 @@ public class UsuarioDataRepository implements UsuarioRepository {
 
     @Override
     public void save(Usuario usuario) {
-
+        this.localDataSource.save(usuario);
     }
 
     @Override
     public List<Usuario> getAll() {
-        return null;
+        return null; //this.localDataSource.findAll();
     }
 }

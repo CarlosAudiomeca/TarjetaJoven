@@ -17,11 +17,11 @@ public class EmpresaDataRepository implements EmpresaRepository {
 
     @Override
     public void save(Empresa empresa) {
-
+        this.localDataSource.save(empresa);
     }
 
     @Override
     public List<Empresa> getAll() {
-        return null;
+        return null; //localDataSource.findAll();
     }
 }
